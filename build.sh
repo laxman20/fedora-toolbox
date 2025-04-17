@@ -11,7 +11,7 @@ toolbox rmi "$name" --force &> /dev/null
 cd $(dirname "${BASH_SOURCE[0]}")
 
 echo "Building image"
-podman build --pull -t "$name" -f Containerfile
+podman build --pull=always -t "$name" -f Containerfile
 
 echo "Creating toolbox"
 toolbox create -i "$name" "$name"
